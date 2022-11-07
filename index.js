@@ -8,20 +8,15 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const thisIsIt = () => {
-    fs.appendFile('README.md', `${name.title}\n`, (err) =>
-        err ? console.error(err) : console.log('Heres a read me')
-    
-    );
-    }
 
-inquirer
-    .prompt([
-    {
-      type: 'confirm',
-      message: 'What is the title of your project?',
-      name: 'title',
-    },
+
+// inquirer
+//     .prompt([
+//     {
+//       type: 'input',
+//       message: 'What is the title of your project?',
+//       name: 'title',
+//     },
     // {
     //   type: 'input',
     //   message: 'Description section of your project:',
@@ -52,13 +47,20 @@ inquirer
     //   message: 'Test Instructions:',
     //   name: 'testInstructions',
     // },
-  ])
-  .then((response) =>
-    response.title === true
-      ? thisIsIt()
-      : console.log('Bruh')
-  );
+//   ])
+//   .then((response) =>
+//     response.title !== 15
+//       ? console.log(response.title)
+//       : console.log('Bruh')
+//   );
 
+//   const thisIsIt = () => {
+//     fs.appendFile('README.md', `${response.title}\n`, (err) =>
+//         err ? console.error(err) : console.log('Heres a read me')
+    
+//     );
+//     }
+//     thisIsIt();
 
 // // TODO: Create a function to write README file
 // // function writeToFile(fileName, data) {
@@ -74,3 +76,20 @@ inquirer
 
 // // Function call to initialize app
 // init();
+
+
+
+inquirer
+    .prompt([
+    {
+      type: 'input',
+      message: 'What is the title of your project?',
+      name: 'title',
+    },
+    
+    ])
+    .then((response) =>
+    fs.appendFile('README.md', `${response.title}\n`, (err) =>
+        err ? console.error(err) : console.log('Heres a read me')
+    
+    ));
